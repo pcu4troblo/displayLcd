@@ -1,37 +1,17 @@
 import { Injectable } from '@angular/core';
+import { AssignmentsService } from './assignments.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NumbersService {
 
-  constructor() { }
+  constructor(private assignments: AssignmentsService) { }
 
-  makeOne(size: number): string {
+  makeOne(size: number) {
     let elements: Array<any> = ["\n", " |", "\n", " |"];
-    let number: string = "";
-    elements.forEach(char => {
-      switch (char) {
-        case "\n":
-          number = number + this.assignSpace(size);
-          break;
-        case "|":
-          number = number + this.assignLeftBar(size);
-          break;
-        case " |":
-          number = number + this.assignRightBar(size);
-          break;
-        case " -":
-          number = number + this.assignScript(size);
-          break;
-        case "| |":
-          number = number + this.assignBothBars(size);
-          break;
-      }
-    })
+    let number: string = this.assignments.switchElements(elements, size);
     console.log(number);
-
-    return number;
   }
 
   makeTwo(size: number) {
@@ -39,83 +19,20 @@ export class NumbersService {
     if (size > 1) {
       elements = [" -", " |", " -", "|", " -"];
     }
-    let number: string = "";
-    elements.forEach(char => {
-      switch (char) {
-        case "\n":
-          number = number + this.assignSpace(size);
-          break;
-        case "|":
-          number = number + this.assignLeftBar(size);
-          break;
-        case " |":
-          number = number + this.assignRightBar(size);
-          break;
-        case " -":
-          number = number + this.assignScript(size);
-          break;
-        case "| |":
-          number = number + this.assignBothBars(size);
-          break;
-      }
-    })
+    let number: string = this.assignments.switchElements(elements, size);
     console.log(number);
-
-    return number;
   }
 
   makeThree(size: number) {
     let elements: Array<any> = [" -", " |", " -", " |", " -"];
-    let number: string = "";
-    elements.forEach(char => {
-      switch (char) {
-        case "\n":
-          number = number + this.assignSpace(size);
-          break;
-        case "|":
-          number = number + this.assignLeftBar(size);
-          break;
-        case " |":
-          number = number + this.assignRightBar(size);
-          break;
-        case " -":
-          number = number + this.assignScript(size);
-          break;
-        case "| |":
-          number = number + this.assignBothBars(size);
-          break;
-      }
-    })
+    let number: string = this.assignments.switchElements(elements, size);
     console.log(number);
-
-    return number;
   }
 
   makeFour(size: number) {
     let elements: Array<any> = ["\n", "| |", " -", " |"];
-    let number: string = "";
-    elements.forEach(char => {
-      switch (char) {
-        case "\n":
-          number = number + this.assignSpace(size);
-          break;
-        case "|":
-          number = number + this.assignLeftBar(size);
-          break;
-        case " |":
-          number = number + this.assignRightBar(size);
-          break;
-        case " -":
-          number = number + this.assignScript(size);
-          break;
-        case "| |":
-          number = number + this.assignBothBars(size);
-          break;
-      }
-    })
+    let number: string = this.assignments.switchElements(elements, size);
     console.log(number);
-
-    return number;
   }
 
   makeFive(size: number) {
@@ -123,234 +40,42 @@ export class NumbersService {
     if (size > 1) {
       elements = [" -", "|", " -", " |", " -"];
     }
-    let number: string = "";
-    elements.forEach(char => {
-      switch (char) {
-        case "\n":
-          number = number + this.assignSpace(size);
-          break;
-        case "|":
-          number = number + this.assignLeftBar(size);
-          break;
-        case " |":
-          number = number + this.assignRightBar(size);
-          break;
-        case " -":
-          number = number + this.assignScript(size);
-          break;
-        case "| |":
-          number = number + this.assignBothBars(size);
-          break;
-      }
-    })
+    let number: string = this.assignments.switchElements(elements, size);
     console.log(number);
-    return number;
   }
 
   makeSix(size: number) {
     let elements: Array<any> = [" -", "|", "\n", " -", "| |", " -"];
+    let number = "";
     if (size > 1) {
       elements = [" -", "|", " -", "| |", " -"];
     }
-    let number: string = "";
-    elements.forEach(char => {
-      switch (char) {
-        case "\n":
-          number = number + this.assignSpace(size);
-          break;
-        case "|":
-          number = number + this.assignLeftBar(size);
-          break;
-        case " |":
-          number = number + this.assignRightBar(size);
-          break;
-        case " -":
-          number = number + this.assignScript(size);
-          break;
-        case "| |":
-          number = number + this.assignBothBars(size);
-          break;
-      }
-    })
+    number = this.assignments.switchElements(elements, size);
     console.log(number);
-
-    return number;
   }
 
   makeSeven(size: number) {
     let elements: Array<any> = [" -", " |", "\n", " |", "\n"];
-    let number: string = "";
-    elements.forEach(char => {
-      switch (char) {
-        case "\n":
-          number = number + this.assignSpace(size);
-          break;
-        case "|":
-          number = number + this.assignLeftBar(size);
-          break;
-        case " |":
-          number = number + this.assignRightBar(size);
-          break;
-        case " -":
-          number = number + this.assignScript(size);
-          break;
-        case "| |":
-          number = number + this.assignBothBars(size);
-          break;
-      }
-    })
+    let number: string = this.assignments.switchElements(elements, size);
     console.log(number);
-
-    return number;
   }
 
   makeEight(size: number) {
     let elements: Array<any> = [" -", "| |", " -", "| |", " -"];
-    let number: string = "";
-    elements.forEach(char => {
-      switch (char) {
-        case "\n":
-          number = number + this.assignSpace(size);
-          break;
-        case "|":
-          number = number + this.assignLeftBar(size);
-          break;
-        case " |":
-          number = number + this.assignRightBar(size);
-          break;
-        case " -":
-          number = number + this.assignScript(size);
-          break;
-        case "| |":
-          number = number + this.assignBothBars(size);
-          break;
-      }
-    })
+    let number: string = this.assignments.switchElements(elements, size);
     console.log(number);
-
-    return number;
   }
 
   makeNine(size: number) {
     let elements: Array<any> = [" -", "| |", " -", " |", "\n"];
-    let number: string = "";
-    elements.forEach(char => {
-      switch (char) {
-        case "\n":
-          number = number + this.assignSpace(size);
-          break;
-        case "|":
-          number = number + this.assignLeftBar(size);
-          break;
-        case " |":
-          number = number + this.assignRightBar(size);
-          break;
-        case " -":
-          number = number + this.assignScript(size);
-          break;
-        case "| |":
-          number = number + this.assignBothBars(size);
-          break;
-      }
-    })
+    let number: string = this.assignments.switchElements(elements, size);
     console.log(number);
-
-    return number;
   }
 
   makeZero(size: number) {
     let elements: Array<any> = [" -", "| |", "\n", "| |", " -"];
-    let number: string = "";
-    elements.forEach(char => {
-      switch (char) {
-        case "\n":
-          number = number + this.assignSpace(size);
-          break;
-        case "|":
-          number = number + this.assignLeftBar(size);
-          break;
-        case " |":
-          number = number + this.assignRightBar(size);
-          break;
-        case " -":
-          number = number + this.assignScript(size);
-          break;
-        case "| |":
-          number = number + this.assignBothBars(size);
-          break;
-      }
-    })
+    let number: string = this.assignments.switchElements(elements, size);
     console.log(number);
-
-    return number;
   }
-
-
-  assignScript(size: number): string {
-    let arr: Array<any> = [];
-    let character = " -\n";
-    arr = character.split("");
-    for (let i = 1; i < size; i++) {
-      arr.splice(1, 0, "-")
-    }
-    character = arr.join("");
-    return character;
-  }
-
-  assignRightBar(size: number): string {
-    let arr: Array<any> = [];
-    let character = "  |\n";
-    let char: string = "";
-    arr = character.split("")
-    for (let i = 1; i < size; i++) {
-      arr.splice(1, 0, " ")
-    }
-    character = arr.join("");
-    char = character;
-    for (let j = 1; j < size; j++) {
-      character = character + char;
-    }
-    return character
-  }
-
-  assignLeftBar(size: number): string {
-    let arr: Array<any> = [];
-    let character = "|";
-    let char: string = "";
-    if (size > 1) {
-      arr = character.split("");
-      arr.push("\n");
-      character = arr.join("");
-      char = character;
-      for (let j = 1; j < size; j++) {
-        character = character + char;
-      }
-    }
-    return character
-  }
-
-  assignBothBars(size: number): string {
-    let arr: Array<any> = [];
-    let character = "| |\n";
-    let char: string = "";
-    if (size > 1) {
-      arr = character.split("")
-      for (let i = 1; i < size; i++) {
-        arr.splice(1, 0, " ")
-      }
-      character = arr.join("");
-      char = character;
-      for (let j = 1; j < size; j++) {
-        character = character + char;
-      }
-    }
-    return character
-  }
-
-  assignSpace(size: number): string {
-    return "\n"
-  }
-
-
 
 }

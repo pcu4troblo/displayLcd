@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NumbersService } from './services/numbers.service';
+import { AssignmentsService } from './services/assignments.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { NumbersService } from './services/numbers.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [NumbersService],
+  providers: [NumbersService, AssignmentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

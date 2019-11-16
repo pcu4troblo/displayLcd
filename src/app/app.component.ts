@@ -14,38 +14,42 @@ export class AppComponent {
   failedSize: boolean = false;
   failedLetter: boolean = false;
   failedNumber: boolean = false;
-  nullSize: boolean= false;
+  nullSize: boolean = false;
 
   constructor(private service: NumbersService) { }
 
   print() {
-    if(this.size == null){
+    //if user doesn't type any size
+    if (this.size == null) {
       this.nullSize = true;
       return
     }
-    if(this.number<0){
+    //if number is negative
+    if (this.number < 0) {
       this.failedNumber = true;
       return
     }
-    //If user put a letter in the number
-    if(isNaN(this.number)){
+    //If user types a letter in the number
+    if (isNaN(this.number)) {
       this.failedLetter = true;
       return
     }
-    //If the user put a letter in the size
-    if(isNaN(this.size)){
+    //If the user types a letter in the size
+    if (isNaN(this.size)) {
       this.failedLetter = true;
       return
     }
-    //If the user put an invalid size
-    if(this.size>10 || this.size<0){
+    //If the user types an invalid size
+    if (this.size > 10 || this.size < 0) {
       this.failedSize = true;
-       return
+      return
     }
+    //If user types 0 and 0 clears the console
     if (this.number == '0' && this.size == 0) {
       console.clear();
     } else {
       this.numbers = this.number.split("");
+      console.log(this.numbers);
       this.numbers.forEach(num => {
         switch (num) {
           case "1":
@@ -79,7 +83,7 @@ export class AppComponent {
             this.service.makeZero(this.size);
             break;
         }
-      })
+      });
     }
   }
 
