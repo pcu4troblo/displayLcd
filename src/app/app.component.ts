@@ -16,6 +16,10 @@ export class AppComponent {
   constructor(private service: NumbersService) { }
 
   print() {
+    if(!isNaN(this.size)){
+      this.failed = true;
+      return
+    }
     if(this.size>10 || this.size<0){
       this.failed = true;
        return
