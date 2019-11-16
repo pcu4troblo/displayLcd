@@ -7,8 +7,9 @@ export class AssignmentsService {
 
   constructor() { }
 
-  switchElements(elements:Array<any>, size: number ): string{
-    let number : string = "";
+  switchElements(elements: Array<any>, size: number): string {
+    let number: string = "";
+    //Characters assignments
     elements.forEach(char => {
       switch (char) {
         case "\n":

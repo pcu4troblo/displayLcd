@@ -49,7 +49,7 @@ export class AppComponent {
       console.clear();
     } else {
       this.numbers = this.number.split("");
-      console.log(this.numbers);
+      //print each number
       this.numbers.forEach(num => {
         switch (num) {
           case "1":
