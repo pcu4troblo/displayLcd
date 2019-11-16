@@ -9,19 +9,37 @@ import { NumbersService } from './services/numbers.service';
 export class AppComponent {
 
   size: any;
-  number: string;
+  number: any;
   numbers: Array<any> = [];
-  failed: boolean = false;
+  failedSize: boolean = false;
+  failedLetter: boolean = false;
+  failedNumber: boolean = false;
+  nullSize: boolean= false;
 
   constructor(private service: NumbersService) { }
 
   print() {
-    if(!isNaN(this.size)){
-      this.failed = true;
+    if(this.size == null){
+      this.nullSize = true;
       return
     }
+    if(this.number<0){
+      this.failedNumber = true;
+      return
+    }
+    //If user put a letter in the number
+    if(isNaN(this.number)){
+      this.failedLetter = true;
+      return
+    }
+    //If the user put a letter in the size
+    if(isNaN(this.size)){
+      this.failedLetter = true;
+      return
+    }
+    //If the user put an invalid size
     if(this.size>10 || this.size<0){
-      this.failed = true;
+      this.failedSize = true;
        return
     }
     if (this.number == '0' && this.size == 0) {

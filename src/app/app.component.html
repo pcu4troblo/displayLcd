@@ -5,15 +5,27 @@
             <label for="exampleInputEmail1">Number Size:</label>
             <input type="text" class="form-control" placeholder="Size from 0 to 10" [(ngModel)]="size"
                 [ngModelOptions]="{standalone: true}">
+                <div *ngIf="nullSize" class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        Put a size!
+                    </div>
+            <div *ngIf="failedSize" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Size only between 1 and 10.
+            </div>
+            <div *ngIf="failedLetter" class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                Letters or symbols not allowed.
+            </div>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Number:</label>
             <input type="text" class="form-control" placeholder="Number" [(ngModel)]="number"
                 [ngModelOptions]="{standalone: true}">
         </div>
-        <div *ngIf="failed" class="alert alert-success">
+        <div *ngIf="failedNumber" class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            Size only between 1 and 10.
+            Only numbers greater than 0 allowed.
         </div>
         <button type="submit" class="btn btn-primary" (click)="print()">Convertir</button>
     </form>
